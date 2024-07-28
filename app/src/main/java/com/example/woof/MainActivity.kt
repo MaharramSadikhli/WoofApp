@@ -52,10 +52,18 @@ class MainActivity : ComponentActivity() {
 /**
  * Composable that displays what the UI of the app looks like in light theme in the design tab.
  */
-@Preview
+@Preview(showBackground = true)
 @Composable
 fun WoofPreview() {
     WoofTheme(darkTheme = false) {
+        WoofApp()
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun WoofPreviewDarkTheme() {
+    WoofTheme(darkTheme = true) {
         WoofApp()
     }
 }
