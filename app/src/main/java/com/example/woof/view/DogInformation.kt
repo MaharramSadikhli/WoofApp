@@ -10,6 +10,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import com.example.woof.R
+import com.example.woof.ui.components.DogAgeText
+import com.example.woof.ui.components.DogNameText
 
 
 /**
@@ -26,14 +28,7 @@ fun DogInformation(
     modifier: Modifier = Modifier
 ) {
     Column(modifier = modifier) {
-        Text(
-            text = stringResource(dogName),
-            style = MaterialTheme.typography.displayMedium,
-            modifier = Modifier.padding(top = dimensionResource(R.dimen.padding_small))
-        )
-        Text(
-            text = stringResource(R.string.years_old, dogAge),
-            style = MaterialTheme.typography.bodyLarge
-        )
+        DogNameText(dogName = dogName)
+        DogAgeText(dogAge = dogAge)
     }
 }
