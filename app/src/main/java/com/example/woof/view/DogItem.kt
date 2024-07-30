@@ -9,6 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import com.example.woof.R
 import com.example.woof.data.Dog
+import com.example.woof.ui.components.DogItemRow
 
 /**
  * Composable that displays a list item containing a dog icon and their information.
@@ -22,6 +23,6 @@ fun DogItem(
     modifier: Modifier = Modifier
 ) {
     Card(modifier = modifier) {
-        DogItem(dog = dog)
+        DogItemRow(dog = dog)
     }
 }
