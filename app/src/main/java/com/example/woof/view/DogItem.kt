@@ -22,13 +22,6 @@ fun DogItem(
     modifier: Modifier = Modifier
 ) {
     Card(modifier = modifier) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(dimensionResource(R.dimen.padding_small))
-        ) {
-            DogIcon(dog.imageResourceId)
-            DogInformation(dog.name, dog.age)
-        }
+        DogItem(dog = dog)
     }
 }
