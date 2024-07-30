@@ -20,9 +20,10 @@ import com.example.woof.ui.components.DogItemRow
 @Composable
 fun DogItem(
     dog: Dog,
+    expanded: Boolean,
     modifier: Modifier = Modifier
 ) {
     Card(modifier = modifier) {
-        DogItemRow(dog = dog)
+        DogItemRow(dog = dog, expanded = expanded)
     }
 }

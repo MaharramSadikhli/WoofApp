@@ -7,6 +7,10 @@ import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import com.example.woof.R
@@ -19,6 +23,8 @@ import com.example.woof.ui.components.TopAppBarRow
 @Composable
 fun WoofApp() {
 
+    var expanded by remember { mutableStateOf(false) }
+
     val paddingSmall = dimensionResource(id = R.dimen.padding_small)
 
     Scaffold(
@@ -26,7 +32,7 @@ fun WoofApp() {
     ) {
         LazyColumn(contentPadding = it) {
             items(dogs) { dog ->
-                DogItem(dog = dog, modifier = Modifier.padding(paddingSmall))
+                DogItem(dog = dog, expanded = expanded, modifier = Modifier.padding(paddingSmall))
             }
         }
     }
