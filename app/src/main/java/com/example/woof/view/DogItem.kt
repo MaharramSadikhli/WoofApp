@@ -19,11 +19,20 @@ import com.example.woof.ui.components.DogItemRow
  */
 @Composable
 fun DogItem(
-    dog: Dog,
-    expanded: Boolean,
-    modifier: Modifier = Modifier
+    dog: Dog, expanded: Boolean, onClick: () -> Unit, modifier: Modifier = Modifier
 ) {
     Card(modifier = modifier) {
-        DogItemRow(dog = dog, expanded = expanded)
+        DogItemRow(dog = dog, expanded = expanded, onClick = onClick)
+        if (expanded) {
+            DogHobby(
+                dogHobby = dog.hobbies, modifier = Modifier.padding(
+                    start = dimensionResource(id = R.dimen.padding_medium),
+                    top = dimensionResource(id = R.dimen.padding_small),
+                    end = dimensionResource(id = R.dimen.padding_medium),
+                    bottom = dimensionResource(id = R.dimen.padding_medium)
+                )
+            )
+        }
+
     }
 }

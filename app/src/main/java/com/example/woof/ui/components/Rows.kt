@@ -24,7 +24,7 @@ fun TopAppBarRow(modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun DogItemRow(dog: Dog, expanded: Boolean, modifier: Modifier = Modifier) {
+fun DogItemRow(dog: Dog, expanded: Boolean, onClick: () -> Unit, modifier: Modifier = Modifier) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -33,6 +33,6 @@ fun DogItemRow(dog: Dog, expanded: Boolean, modifier: Modifier = Modifier) {
         DogIcon(dog.imageResourceId)
         DogInformation(dog.name, dog.age)
         Spacer(modifier = Modifier.weight(1f))
-        DogItemButton(expanded = expanded, onClick = { /*TODO*/ })
+        DogItemButton(expanded = expanded, onClick = onClick)
     }
 }

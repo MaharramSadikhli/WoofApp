@@ -23,7 +23,7 @@ import com.example.woof.ui.components.TopAppBarRow
 @Composable
 fun WoofApp() {
 
-    var expanded by remember { mutableStateOf(false) }
+
 
     val paddingSmall = dimensionResource(id = R.dimen.padding_small)
 
@@ -32,7 +32,8 @@ fun WoofApp() {
     ) {
         LazyColumn(contentPadding = it) {
             items(dogs) { dog ->
-                DogItem(dog = dog, expanded = expanded, modifier = Modifier.padding(paddingSmall))
+                var expanded by remember { mutableStateOf(false) }
+                DogItem(dog = dog, expanded = expanded, onClick = {expanded = !expanded}, modifier = Modifier.padding(paddingSmall))
             }
         }
     }
