@@ -1,5 +1,9 @@
 package com.example.woof.view
 
+import androidx.compose.animation.animateContentSize
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.spring
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -22,17 +26,25 @@ fun DogItem(
     dog: Dog, expanded: Boolean, onClick: () -> Unit, modifier: Modifier = Modifier
 ) {
     Card(modifier = modifier) {
-        DogItemRow(dog = dog, expanded = expanded, onClick = onClick)
-        if (expanded) {
-            DogHobby(
-                dogHobby = dog.hobbies, modifier = Modifier.padding(
-                    start = dimensionResource(id = R.dimen.padding_medium),
-                    top = dimensionResource(id = R.dimen.padding_small),
-                    end = dimensionResource(id = R.dimen.padding_medium),
-                    bottom = dimensionResource(id = R.dimen.padding_medium)
-                )
+        Column(modifier = Modifier.animateContentSize(
+            animationSpec = spring(
+                dampingRatio = Spring.DampingRatioMediumBouncy,
+                stiffness = Spring.StiffnessMedium
             )
+        )) {
+            DogItemRow(dog = dog, expanded = expanded, onClick = onClick)
+            if (expanded) {
+                DogHobby(
+                    dogHobby = dog.hobbies, modifier = Modifier.padding(
+                        start = dimensionResource(id = R.dimen.padding_medium),
+                        top = dimensionResource(id = R.dimen.padding_small),
+                        end = dimensionResource(id = R.dimen.padding_medium),
+                        bottom = dimensionResource(id = R.dimen.padding_medium)
+                    )
+                )
+            }
         }
+
 
     }
 }
